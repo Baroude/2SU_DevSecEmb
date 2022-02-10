@@ -28,7 +28,7 @@ Voici leurs utilités :
 
 Ce qu'on veut accomplir, c'est modifier le programme pour que le test renvoie que le mot de passe correcte peu importe le mot de passe tapé.
 
-![Code assembleur de la fonction is_valid](/home/mathias/Documents/2SU_DevSecEmb/Dissassembly.png)
+![Code assembleur de la fonction is_valid](TD1/Dissassembly.png)
 
 Ici dans la fonction is_valid on voit qu'a l'offset 11a4 on fait le test de comparaison. Si le test renvoie faux on execute l'offset 11af et on insère la valeur 0 dans le registre eax. Si le test est vrai, on voit à l'offset 11a8 qu'on met 0x01 sur le registre eax.
 
@@ -38,7 +38,7 @@ Il faut donc modifier ce qu'il se passe à l'offset 11b0
 ```bash
 $ printf '\x01' | dd of=program bs=1 seek=4528 count=1 conv=notrunc
 ```
-![Succès](/home/mathias/Documents/2SU_DevSecEmb/Réussite.png)
+![Succès](TD3/Réussite.png)
 
 ### Questions
 
@@ -73,7 +73,7 @@ On retrouve tux dans le dossier
 On va faire segfault le programme lorsqu'il demande une entrée utilisateur.
 Après plusieurs essais, il semblerait que le programme plante quand on entre 1025 caractères.
 
-![segfault](/home/mathias/Documents/2SU_DevSecEmb/seg-fault.png)
+![segfault](TD3/seg-fault.png)
 
 Nous allons maintenant créer notre rop chain à l'aide de ropper et écrire notre exploit:
 
@@ -130,7 +130,7 @@ Maintenant pour exploiter le buffer overflow on lance cette commande
 
 Vérifions que cela fonctionne correctement.
 
-![buffer overflow qui fonctionne](/home/mathias/Documents/2SU_DevSecEmb/buffer-overflow.png)
+![buffer overflow qui fonctionne](TD3/buffer-overflow.png)
 
 ### Questions
 
